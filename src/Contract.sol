@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
-contract Realm is ERC721, ERC721Enumerable, IERC721Receiver, ReentrancyGuard, Ownable {
+contract Contract is ERC721, ERC721Enumerable, IERC721Receiver, ReentrancyGuard, Ownable {
 	uint256 public SUPPLY_INDEX = 1;
     uint256 public SUPPLY_LIMIT = 1;
 	uint256 public PRICE = 0;
@@ -243,7 +243,7 @@ contract Realm is ERC721, ERC721Enumerable, IERC721Receiver, ReentrancyGuard, Ow
         uint256 tokenId,
         bytes calldata
     ) external pure override(IERC721Receiver) returns (bytes4) {
-        return Realm.onERC721Received.selector;
+        return Contract.onERC721Received.selector;
     }
 
 	function tokenURI(uint256 tokenId) override public view returns (string memory) {
